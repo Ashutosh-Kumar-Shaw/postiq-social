@@ -1,0 +1,201 @@
+/* PostCard Styles - Instagram Style Design */
+.post-card {
+  background: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 2%;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  max-width: 100%;
+}
+
+.post-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Header Section */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f0f0f0;
+  border: 2px solid #fafafa;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.author-name {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.post-timestamp {
+  margin: 0;
+  font-size: 11px;
+  color: #8e8e8e;
+  font-weight: 400;
+}
+
+/* Caption and hashtags section */
+.post-caption-hashtags {
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+  font-size: 13px;
+  line-height: 1.6;
+  gap: 1%;
+}
+
+/* Caption Section */
+.post-caption {
+  color: #262626;
+  word-wrap: break-word;
+}
+
+/* Image Container */
+.post-image-container {
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2%;
+  max-height: 400px;
+}
+
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1%;
+}
+
+/* Hashtags */
+.post-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Summary Section */
+.post-summary {
+  padding: 12px 16px;
+  background: #fafafa;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  margin: 12px 0;
+}
+
+.summary-text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #262626;
+}
+
+/* Action Buttons */
+.post-actions {
+  display: flex;
+  gap: 12px;
+  padding: 8px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Stats Section */
+.post-stats {
+  display: flex;
+  gap: 6px;
+  padding: 8px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 12px;
+  color: #262626;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  gap: 4px;
+}
+
+.stat-item strong {
+  font-weight: 600;
+}
+
+.stat-divider {
+  color: #8e8e8e;
+  font-size: 10px;
+}
+
+/* Comment Section */
+.comment-section {
+  padding: 12px 16px;
+  background: #fafafa;
+  border-top: 1px solid #efefef;
+}
+
+.comment-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f0f0f0;
+}
+
+.comment-input-wrap {
+  flex: 1;
+}
+
+.comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .post-card {
+    margin-bottom: 16px;
+  }
+
+  .post-header {
+    padding: 10px 12px;
+  }
+
+  .post-actions {
+    padding: 6px 12px;
+  }
+
+  .comment-section {
+    padding: 10px 12px;
+  }
+}
