@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/PostCard.css";
 import {
   Heart,
@@ -24,6 +24,7 @@ const PostCard = ({
   onLikeComment,
   onReplyComment,
   currentUser, // { name, avatar } - the user who will comment
+  delay = 5000,
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
@@ -31,6 +32,14 @@ const PostCard = ({
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [commentText, setCommentText] = useState("");
+  const [isLoading, setIsLoading] = useState(delay > 0);
+
+  useEffect(() => {
+    if (!delay) return;
+    setIsLoading(true);
+    const t = setTimeout(() => setIsLoading(false), delay);
+    return () => clearTimeout(t);
+  }, [delay]);
 
   const handleLike = () => {
     setIsLiked(!isLiked);
@@ -81,6 +90,47 @@ const PostCard = ({
     if (diffDays < 7) return `${diffDays}d ago`;
     return date.toLocaleDateString();
   };
+
+  if (isLoading) {
+    return (
+      <div className="post-card post-card--loading">
+        <div className="post-header">
+          <div className="author-info">
+            <div className="skeleton-avatar" />
+            <div className="author-details">
+              <div className="skeleton-line skeleton-short" />
+              <div className="skeleton-line skeleton-tiny" />
+            </div>
+          </div>
+          <div className="skeleton-line skeleton-tiny" />
+        </div>
+
+        <div className="post-caption-hashtags">
+          <div className="skeleton-line" />
+        </div>
+
+        <div className="post-image-container">
+          <div className="skeleton-image" />
+        </div>
+
+        <div className="post-actions">
+          <div className="skeleton-btn" />
+          <div className="skeleton-btn" />
+          <div className="skeleton-btn" />
+          <div className="actions-spacer" />
+          <div className="skeleton-btn" />
+        </div>
+
+        <div className="comment-section">
+          <div className="comment-row">
+            <div className="skeleton-avatar skeleton-avatar-small" />
+            <div className="skeleton-line" />
+            <div className="skeleton-btn skeleton-btn-small" />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="post-card">
