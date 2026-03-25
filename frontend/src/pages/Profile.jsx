@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Profile.css";
 import profileImg from "../assets/profile.jpg";
 import githubLogo from "../assets/github-logo.jpg";
@@ -6,6 +7,8 @@ import mediumLogo from "../assets/medium-logo.png";
 import stackoverflowLogo from "../assets/stackoverflow-logo.jpg";
 
 export default function ProfileCard() {
+  const navigate = useNavigate();
+
   // ---------- State for interests ----------
   const [interests, setInterests] = useState([".NET", "JAVA", "Angular", "ReactJS", "NodeJS", "Python", "Django", "Machine Learning", "Data Science", "DevOps", "Cloud Computing", "Cybersecurity", "Blockchain", "AI", "Web Development"]);
   const [newInterest, setNewInterest] = useState("");
@@ -54,7 +57,7 @@ export default function ProfileCard() {
         {/* My Posts */}
         <div className="px-6 py-4 font-semibold text-gray-700 border-r border-green-300 flex items-center gap-3 badge bg-gradient-to-r from-green-50 to-transparent hover:bg-green-100">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-800">My Posts</h2>
-          <button className="text-l sm:text-2l font-light text-gray-70 add-post-btn hover:scale-10">+</button>
+          <button onClick={() => navigate('/myposts')} className="text-l sm:text-2l font-light text-gray-70 add-post-btn hover:scale-10">+</button>
         </div>
 
         <div className="socials">
